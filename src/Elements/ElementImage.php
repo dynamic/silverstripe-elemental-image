@@ -4,6 +4,7 @@ namespace Dynamic\Elements\Image\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
+use SilverStripe\ORM\FieldType\DBField;
 
 /**
  * Class ElementImage.
@@ -51,9 +52,32 @@ class ElementImage extends BaseElement
     {
         $fields = parent::getCMSFields();
 
-        $fields->fieldByName('Root.Main.Image')->setFolderName('Uploads/ElementImage');
+        $fields->fieldByName('Root.Main.Image')
+            ->setFolderName('Uploads/ElementImage')
+            ->setAllowedFileCategories('image')
+            ->setAllowedMaxFileNumber(1);
 
         return $fields;
+    }
+
+    /**
+     * @return DBHTMLText
+     */
+    public function getSummary()
+    {
+        if ($this->Image()->exists()) {
+            return DBField::create_field('HTMLText', $this->Image()->Name)->Summary(20);
+        }
+    }
+
+    /**
+     * @return array
+     */
+    protected function provideBlockSchema()
+    {
+        $blockSchema = parent::provideBlockSchema();
+        $blockSchema['content'] = $this->getSummary();
+        return $blockSchema;
     }
 
     /**
