@@ -3,6 +3,7 @@
 namespace Dynamic\Elements\Image\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\FieldType\DBField;
 
@@ -34,16 +35,16 @@ class ElementImage extends BaseElement
     /**
      * @var array
      */
-    private static $has_one = array(
+    private static $has_one = [
         'Image' => Image::class,
-    );
+    ];
 
     /**
      * @var array
      */
-    private static $owns = array(
+    private static $owns = [
         'Image',
-    );
+    ];
 
     /**
      * @return \SilverStripe\Forms\FieldList
@@ -52,10 +53,12 @@ class ElementImage extends BaseElement
     {
         $fields = parent::getCMSFields();
 
-        $fields->fieldByName('Root.Main.Image')
+        $imageField = $fields->fieldByName('Root.Main.Image')
             ->setFolderName('Uploads/ElementImage')
-            ->setAllowedFileCategories('image')
-            ->setAllowedMaxFileNumber(1);
+            ->setAllowedFileCategories('image');
+        if ($imageField instanceof UploadField) {
+            $imageField->setAllowedMaxFileNumber(1);
+        }
 
         return $fields;
     }
@@ -77,6 +80,7 @@ class ElementImage extends BaseElement
     {
         $blockSchema = parent::provideBlockSchema();
         $blockSchema['content'] = $this->getSummary();
+
         return $blockSchema;
     }
 
@@ -85,6 +89,6 @@ class ElementImage extends BaseElement
      */
     public function getType()
     {
-        return _t(__CLASS__.'.BlockType', 'Image');
+        return _t(__CLASS__ . '.BlockType', 'Image');
     }
 }
