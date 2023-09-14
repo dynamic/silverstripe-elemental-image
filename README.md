@@ -13,6 +13,7 @@ A block to add a single image to your page.
 ## Requirements
 
 * dnadesign/silverstripe-elemental: ^5
+* jonom/focuspoint: ^5
 
 ## Installation
 
