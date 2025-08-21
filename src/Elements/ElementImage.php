@@ -5,6 +5,7 @@ namespace Dynamic\Elements\Image\Elements;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\FieldType\DBField;
 
 /**
@@ -51,16 +52,18 @@ class ElementImage extends BaseElement
      */
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
+            $imageField = $fields->fieldByName('Root.Main.Image');
+            if ($imageField) {
+                $imageField->setFolderName('Uploads/ElementImage')
+                    ->setAllowedFileCategories('image');
+                if ($imageField instanceof UploadField) {
+                    $imageField->setAllowedMaxFileNumber(1);
+                }
+            }
+        });
 
-        $imageField = $fields->fieldByName('Root.Main.Image')
-            ->setFolderName('Uploads/ElementImage')
-            ->setAllowedFileCategories('image');
-        if ($imageField instanceof UploadField) {
-            $imageField->setAllowedMaxFileNumber(1);
-        }
-
-        return $fields;
+        return parent::getCMSFields();
     }
 
     /**
