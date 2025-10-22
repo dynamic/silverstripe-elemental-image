@@ -22,8 +22,7 @@
         "dnadesign/silverstripe-elemental": "^6.0",
         "jonom/focuspoint": "^6.0",
         "silverstripe/recipe-cms": "^6.0",
-        "silverstripe/linkfield": "^5.0",
-        "silverstripe/vendor-plugin": "^3"
+        "silverstripe/linkfield": "^5.0"
     },
     "require-dev": {
         "cambis/silverstan": "^2.1",
