@@ -3,7 +3,6 @@
 namespace Dynamic\Elements\Image\Tests;
 
 use Dynamic\Elements\Image\Elements\ElementImage;
-use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Forms\FieldList;
 

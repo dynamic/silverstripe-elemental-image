@@ -12,8 +12,9 @@ A block to add a single image to your page.
 
 ## Requirements
 
-* dnadesign/silverstripe-elemental: ^5
-* jonom/focuspoint: ^5
+* dnadesign/silverstripe-elemental: ^6.0
+* jonom/focuspoint: ^6.0
+* silverstripe/recipe-cms: ^6.0
 
 ## Installation
 
