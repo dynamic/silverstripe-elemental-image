@@ -2,8 +2,7 @@
 
 A block to add a single image to your page.
 
-[![CI](https://github.com/dynamic/silverstripe-elemental-image/actions/workflows/ci.yml/badge.svg)](https://github.com/dynamic/silverstripe-elemental-image/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/dynamic/silverstripe-elemental-image/branch/master/graph/badge.svg)](https://codecov.io/gh/dynamic/silverstripe-elemental-image)
+[![CI](https://github.com/dynamic/silverstripe-elemental-image/actions/workflows/ci.yml/badge.svg)](https://github.com/dynamic/silverstripe-elemental-image/actions/workflows/ci.yml) [![Sponsors](https://img.shields.io/badge/GitHub-Sponsors-ff69b4?logo=github)](https://github.com/sponsors/dynamic)
 
 [![Latest Stable Version](https://poser.pugx.org/dynamic/silverstripe-elemental-image/v/stable)](https://packagist.org/packages/dynamic/silverstripe-elemental-image)
 [![Total Downloads](https://poser.pugx.org/dynamic/silverstripe-elemental-image/downloads)](https://packagist.org/packages/dynamic/silverstripe-elemental-image)
