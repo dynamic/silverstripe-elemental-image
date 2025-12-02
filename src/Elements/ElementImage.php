@@ -21,12 +21,12 @@ class ElementImage extends BaseElement
     /**
      * @return string
      */
-    private static $singular_name = 'Image Element';
+    private static $singular_name = 'Image';
 
     /**
      * @return string
      */
-    private static $plural_name = 'Image Elements';
+    private static $plural_name = 'Image Blocks';
 
     /**
      * @var string
@@ -85,13 +85,5 @@ class ElementImage extends BaseElement
         $blockSchema['content'] = $this->getSummary();
 
         return $blockSchema;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return _t(__CLASS__ . '.BlockType', 'Image');
     }
 }
